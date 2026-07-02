@@ -1,0 +1,19 @@
+ "title": "DevOps Utility Hub - Overview",
+  "panels": [
+    {
+      "title": "HTTP Requests Total",
+      "type": "graph",
+      "targets": [{ "expr": "rate(http_requests_total[5m])" }]
+    },
+    {
+      "title": "CPU Usage",
+      "type": "graph",
+      "targets": [{ "expr": "process_cpu_user_seconds_total" }]
+    },
+    {
+      "title": "Memory Usage",
+      "type": "graph",
+      "targets": [{ "expr": "process_resident_memory_bytes" }]
+    }
+  ]
+}
