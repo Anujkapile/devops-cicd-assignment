@@ -1,0 +1,18 @@
+{
+  "name": "devops-utility-hub",
+  "version": "1.0.0",
+  "description": "Sample containerized app for CI/CD pipeline assignment",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest --detectOpenHandles"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "prom-client": "^15.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
