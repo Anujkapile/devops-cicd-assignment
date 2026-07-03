@@ -1,19 +1,8 @@
- "title": "DevOps Utility Hub - Overview",
+  {
+  "title": "DevOps Utility Hub - Static Site",
   "panels": [
-    {
-      "title": "HTTP Requests Total",
-      "type": "graph",
-      "targets": [{ "expr": "rate(http_requests_total[5m])" }]
-    },
-    {
-      "title": "CPU Usage",
-      "type": "graph",
-      "targets": [{ "expr": "process_cpu_user_seconds_total" }]
-    },
-    {
-      "title": "Memory Usage",
-      "type": "graph",
-      "targets": [{ "expr": "process_resident_memory_bytes" }]
-    }
+    { "title": "Active Connections", "type": "graph", "targets": [{ "expr": "nginx_connections_active" }] },
+    { "title": "Requests/sec", "type": "graph", "targets": [{ "expr": "rate(nginx_http_requests_total[5m])" }] },
+    { "title": "Container CPU", "type": "graph", "targets": [{ "expr": "rate(container_cpu_usage_seconds_total{pod=~\"devops-utility-hub.*\"}[5m])" }] }
   ]
 }
