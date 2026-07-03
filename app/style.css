@@ -1,0 +1,12 @@
+body {
+  font-family: -apple-system, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #1e1e2f;
+  color: #f0f0f0;
+}
+.container { text-align: center; }
+h1 { color: #61dafb; }
