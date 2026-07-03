@@ -38,3 +38,8 @@ spec:
               port: 3000
             initialDelaySeconds: 10
             periodSeconds: 15
+         - name: nginx-exporter
+           image: nginx/nginx-prometheus-exporter:0.11.0
+           args: ["-nginx.scrape-uri=http://localhost:3000/nginx_status"]
+           ports:
+             - containerPort: 9113
