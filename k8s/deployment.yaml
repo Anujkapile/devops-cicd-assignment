@@ -13,28 +13,19 @@ spec:
     metadata:
       labels:
         app: devops-utility-hub
-      annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "3000"
-        prometheus.io/path: "/metrics"
     spec:
       containers:
         - name: devops-utility-hub
           image: yourdockerhubuser/devops-utility-hub:latest
           ports:
             - containerPort: 3000
-          env:
-            - name: PORT
-              value: "3000"
-            - name: NODE_ENV
-              value: "production"
           resources:
             requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
               cpu: "100m"
               memory: "128Mi"
-            limits:
-              cpu: "250m"
-              memory: "256Mi"
           readinessProbe:
             httpGet:
               path: /health
