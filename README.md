@@ -8,8 +8,8 @@ A complete CI/CD pipeline that builds, tests, and deploys a containerized static
 
 ```
 Developer → Git Push → GitHub → Jenkins Pipeline
-    → Build Docker Image → Run Tests → Push to ECR
-    → Deploy to EC2 / Kubernetes → Prometheus/Grafana Monitoring
+    → Build Docker Image → Run Tests → Push to docker hub
+    → Deploy to EC2 / Kubernetes(k8s) → Prometheus/Grafana Monitoring
 ```
 
 ## Tech Stack
@@ -19,7 +19,7 @@ Developer → Git Push → GitHub → Jenkins Pipeline
 | Source control | GitHub |
 | CI/CD orchestration | Jenkins |
 | Containerization | Docker (Nginx base image) |
-| Container registry | Amazon ECR |
+| Container registry | Docker hub |
 | Compute | AWS EC2 |
 | Orchestration | Kubernetes (k3s) |
 | Monitoring | Prometheus + Grafana |
@@ -47,7 +47,7 @@ Developer → Git Push → GitHub → Jenkins Pipeline
 - Docker
 - AWS CLI configured (`aws configure`)
 - kubectl (if deploying to Kubernetes)
-- Jenkins with Docker Pipeline, Amazon ECR, and SSH Agent plugins
+- Jenkins with Docker Pipeline, Dockerhub, and SSH Agent plugins
 
 ## Local Development
 
@@ -72,7 +72,7 @@ The Jenkins pipeline (`Jenkinsfile`) runs the following stages on every push to 
 1. **Checkout** — pulls latest code from GitHub
 2. **Build** — builds the Docker image
 3. **Test** — spins up the container and runs a health check
-4. **Push Image** — pushes the tagged image to Amazon ECR
+4. **Push Image** — pushes the tagged image to Docker hub
 5. **Deploy** — deploys the new image to EC2 (or Kubernetes)
 
 ## Deployment
@@ -115,5 +115,4 @@ docker run -d --name grafana -p 3000:3000 grafana/grafana
 - [x] GitHub repository
 - [x] Dockerfile
 - [x] Jenkinsfile
-- [ ] Running application URL
 - [x] Deployment configuration (Docker + Kubernetes manifests)
